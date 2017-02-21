@@ -30,10 +30,29 @@ pp client.perform_request 'GET', '_cluster/health'
  
 
 #read input files to put into the server
-json = JSON.parse(File.read('0.json'))
+json = JSON.parse(File.read('1.json'))
 #pp json
 pp client.create    index: 'codes',
                     type:  'technology',
-                    body:   json,
-                    id:     1
+                    body:   json
 
+def add_document(document)
+    response = client.create    index:          'codes',
+                                type:           doc.type,        
+                                title:          doc.title,
+                                year:           doc.year,
+                                institution:    doc.institution,
+                                contributor:    doc.contributor,
+                                code_versions:  doc.code_versions,
+                                date_publish:   doc.date_publised,
+                                ecc_date:       doc.ecc_date,
+                                author_site:    doc.author_site,
+                                url_code:       doc.orig_url,
+                                description:    doc.description,
+                                notes:          doc.notes,
+                                doi:            doc.doi,
+                                copyright:      doc.copyright,
+                                topics:         doc.topics,
+                                fields:         doc.fields
+    return response
+end
