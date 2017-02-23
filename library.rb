@@ -47,7 +47,7 @@ def add_document(document)
                                 date_publish:   doc.date_publised,
                                 ecc_date:       doc.ecc_date,
                                 author_site:    doc.author_site,
-                                url_code:       doc.orig_url,
+                                orig_url:       doc.orig_url,
                                 description:    doc.description,
                                 notes:          doc.notes,
                                 doi:            doc.doi,
